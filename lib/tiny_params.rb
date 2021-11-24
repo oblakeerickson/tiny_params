@@ -11,7 +11,8 @@ module TinyParams
 
   class Params
     def initialize(args)
-      raise ArgumentError.new("Required to be initialized with a Hash") unless args.is_a? Hash
+      raise ArgumentError, "Required to be initialized with a Hash" unless args.is_a? Hash
+
       @args = args
       @required = []
       @optional = []
@@ -21,7 +22,7 @@ module TinyParams
     def required(*keys)
       @required.concat(keys)
       @required.each do |k|
-        raise ArgumentError.new("#{k} is required but not specified") unless @args.key?(k)
+        raise ArgumentError, "#{k} is required but not specified" unless @args.key?(k)
       end
       self
     end
@@ -50,11 +51,10 @@ module TinyParams
       end
 
       @defaults.each do |k, v|
-        @args.key?(k) ? h[k] = @args[k] : h[k] = v
+        h[k] = @args.key?(k) ? @args[k] : v
       end
 
       h
     end
   end
-
 end

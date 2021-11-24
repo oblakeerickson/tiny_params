@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = "A params helper for specifying required, optional, and default params."
   spec.homepage      = "https://github.com/oblakeerickson/tiny_params"
   spec.license       = "MIT"
-  spec.required_ruby_version = ">= 2.4.0"
+  spec.required_ruby_version = ">= 2.5.0"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage
